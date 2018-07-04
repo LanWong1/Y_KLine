@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WpQuote.h>
+#import <objc/Glacier2.h>
+#import <objc/Ice.h>
 
 @interface Y_StockChartViewController : UIViewController
+
+-(instancetype)initWithScode:(NSString *)sCodeSelect KlineDataList:(WpQuoteServerDayKLineList *)KlineDataList;
 
 @end

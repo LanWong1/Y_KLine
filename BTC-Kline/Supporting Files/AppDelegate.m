@@ -17,13 +17,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [NSThread sleepForTimeInterval:3.0];
+//    // Override point for customization after application launch.
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.loginFlag = 0;
+//    LoginVC* Controller = [[LoginVC alloc]init];
+//    [self.window setRootViewController:Controller];
+//    [self.window makeKeyAndVisible];
     return YES;
+
 }
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     if(self.isEable) {
+        NSLog(@"landscape");
         return UIInterfaceOrientationMaskLandscape;
     } else {
+        NSLog(@"Portrait");
         return UIInterfaceOrientationMaskPortrait;
     }
 }

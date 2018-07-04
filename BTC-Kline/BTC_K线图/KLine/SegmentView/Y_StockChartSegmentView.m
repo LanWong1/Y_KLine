@@ -72,14 +72,17 @@ static NSInteger const Y_StockChartSegmentStartTag = 2000;
             
             [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 
-                make.height.equalTo(_indicatorView).multipliedBy(1.0f/titleArr.count);
-                make.width.equalTo(_indicatorView);
-                make.left.equalTo(_indicatorView);
+                make.top.equalTo(_indicatorView.mas_top);
+                make.height.equalTo(_indicatorView.mas_height);
+                make.width.equalTo(_indicatorView.mas_width).multipliedBy(1.0f/titleArr.count);
+             
                 if(preBtn)
                 {
-                    make.top.equalTo(preBtn.mas_bottom);
+                    //make.top.equalTo(preBtn.mas_bottom);
+                    make.left.equalTo(preBtn.mas_right);
                 } else {
-                    make.top.equalTo(_indicatorView);
+                    //make.top.equalTo(_indicatorView);
+                    make.left.equalTo(_indicatorView.mas_left);
                 }
             }];
             UIView *view = [UIView new];
@@ -124,18 +127,28 @@ static NSInteger const Y_StockChartSegmentStartTag = 2000;
     {
         UIButton *btn = [self private_createButtonWithTitle:title tag:Y_StockChartSegmentStartTag+index];
         UIView *view = [UIView new];
-        view.backgroundColor = [UIColor colorWithRed:52.f/255.f green:56.f/255.f blue:67/255.f alpha:1];
+        view.backgroundColor = [UIColor redColor];// [UIColor colorWithRed:52.f/255.f green:56.f/255.f blue:67/255.f alpha:1];
         [self addSubview:btn];
         [self addSubview:view];
+        
+        
+        
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mas_left);
-            make.height.equalTo(self).multipliedBy(1.0f/count);
-            make.width.equalTo(self);
+            //make.left.equalTo(self.mas_left);
+//            make.height.equalTo(self).multipliedBy(1.0f/count);
+//            make.width.equalTo(self);
+            
+            
+            make.top.equalTo(self.mas_top);
+            make.height.equalTo(@50);
+            make.width.equalTo(self).multipliedBy(1.0f/count);;
             if(preBtn)
             {
-                make.top.equalTo(preBtn.mas_bottom).offset(0.5);
+                make.left.equalTo(preBtn.mas_right).offset(0.5);
+                //make.top.equalTo(preBtn.mas_bottom).offset(0.5);
             } else {
-                make.top.equalTo(self);
+                //make.top.equalTo(self);
+                 make.left.equalTo(self);
             }
         }];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -227,7 +240,7 @@ static NSInteger const Y_StockChartSegmentStartTag = 2000;
     return btn;
 }
 
-#pragma mark 底部按钮点击事件
+#pragma mark 底部按钮点击事件  按下button  调用协议方法
 - (void)event_segmentButtonClicked:(UIButton *)btn
 {
     self.selectedBtn = btn;

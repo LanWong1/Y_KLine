@@ -124,7 +124,8 @@
         [self addSubview:_scrollView];
         
         [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self);
+            //make.top.equalTo(self);
+            make.top.equalTo(self).offset(50);
             make.right.equalTo(self).offset(-48);
             make.left.equalTo(self.mas_left);
             make.bottom.equalTo(self.mas_bottom);

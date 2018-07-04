@@ -1,12 +1,12 @@
 //
-//  YStockChartViewController.m
+//  Y_StockChartLandScapeViewController.m
 //  BTC-Kline
 //
-//  Created by yate1996 on 16/4/27.
-//  Copyright © 2016年 yate1996. All rights reserved.
+//  Created by zdqh on 2018/7/3.
+//  Copyright © 2018 yate1996. All rights reserved.
 //
 
-#import "Y_StockChartViewController.h"
+#import "Y_StockChartLandScapeViewController.h"
 #import "Masonry.h"
 #import "Y_StockChartView.h"
 #import "Y_StockChartView.h"
@@ -14,8 +14,7 @@
 #import "Y_KLineGroupModel.h"
 #import "UIColor+Y_StockChart.h"
 #import "AppDelegate.h"
-#import "Y_StockChartLandScapeViewController.h"
-#import "ICEQuote.h"
+#import "Y_StockChartViewController.h"
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -23,7 +22,8 @@
 #define SCREEN_MAX_LENGTH MAX(kScreenWidth,kScreenHeight)
 #define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
 
-@interface Y_StockChartViewController ()<Y_StockChartViewDataSource>
+@interface Y_StockChartLandScapeViewController ()<Y_StockChartViewDataSource>
+
 
 @property (nonatomic, strong) Y_StockChartView *stockChartView;
 
@@ -36,23 +36,9 @@
 
 @property (nonatomic, copy) NSString *type;
 
-@property (nonatomic, copy) NSString* sCode;
-@property (nonatomic, copy) WpQuoteServerDayKLineList* KlineData;
-
 @end
 
-@implementation Y_StockChartViewController
-
--(instancetype)initWithScode:(NSString *)sCodeSelect KlineDataList:(WpQuoteServerDayKLineList *)KlineDataList{
-    
-    self = [super init];
-    if(self){
-        _sCode = sCodeSelect;
-        self.KlineData = KlineDataList;
-    }
-    return self;
-}
-
+@implementation Y_StockChartLandScapeViewController
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,18 +54,17 @@
 }
 
 - (void)viewDidLoad {
-   
+    NSLog(@"view didload");
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor assistBackgroundColor];
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationItem.title = self.sCode;
+    self.navigationItem.title = @"行情";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;//同时设置状态栏和导航栏的文字为白色
-    //self.navigationItem.leftBarButtonItem.style = ;
     //[self.navigationItem setHidesBackButton:YES];//
     // Do any additional setup after loading the view.
     self.currentIndex = -1;
-    self.stockChartView.backgroundColor = [UIColor backgroundColor];//调用了getter方法
+    self.stockChartView.backgroundColor = [UIColor backgroundColor];
+    NSLog(@"endof viediload");
 }
 
 - (NSMutableDictionary<NSString *,Y_KLineGroupModel *> *)modelsDict
@@ -97,7 +82,7 @@
 
 -(id) stockDatasWithIndex:(NSInteger)index
 {
-
+    
     NSString *type;
     switch (index) {
         case 0:
@@ -147,7 +132,6 @@
     
     self.currentIndex = index;
     self.type = type;
-    //无数据 重新下载数据
     if(![self.modelsDict objectForKey:type])
     {
         [self reloadData];
@@ -159,61 +143,29 @@
 
 - (void)reloadData
 {
-//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//    param[@"type"] = self.type;
-//    param[@"market"] = @"btc_usdt";
-//    param[@"size"] = @"1000";
-//    [NetWorking requestWithApi:@"http://api.bitkk.com/data/v1/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
-//        NSLog(@"%@",responseObject[@"data"]);//下载到的数据
-//        Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];
-//        self.groupModel = groupModel;
-//        [self.modelsDict setObject:groupModel forKey:self.type];
-//        [self.stockChartView reloadData];
-//    } fail:^{
-//
-//    }];
-    
-    NSMutableArray *data = [NSMutableArray array];
-    NSEnumerator *enumerator = [ self.KlineData objectEnumerator];
-    id obj = nil;
-    while (obj = [enumerator nextObject]){
-        WpQuoteServerDayKLineCodeInfo* kline = [[WpQuoteServerDayKLineCodeInfo alloc]init];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"type"] = self.type;
+    param[@"market"] = @"btc_usdt";
+    param[@"size"] = @"1000";
+    [NetWorking requestWithApi:@"http://api.bitkk.com/data/v1/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
         
-        kline = obj;
-        if([_sCode isEqualToString: kline.sCode])
-        {
-            NSMutableArray *array = [NSMutableArray arrayWithCapacity:6];
-            array[0] = kline.sDate;
-            array[1] = @([kline.sOpenPrice floatValue]);
-            array[2] = @([kline.sHighPrice floatValue]);
-            array[3] = @([kline.sLowPrice floatValue]);
-            array[4] = @([kline.sLastPrice floatValue]);
-            array[5] = @([kline.sVolume floatValue]);
-            [data addObject:array];
-        }
-
-    }
-    NSLog(@"%@",data);
-    NSMutableArray * newMarray = [NSMutableArray array];
-    NSEnumerator * enumerator1 = [data reverseObjectEnumerator];//倒序排列
-    id object;
-    while (object = [enumerator1 nextObject])
-    {
-        [newMarray addObject:object];
-    }
-    NSLog(@"%@",newMarray);
-    Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:newMarray];
-    self.groupModel = groupModel;
-    [self.modelsDict setObject:groupModel forKey:self.type];
-    [self.stockChartView reloadData];
-    
+        Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];//很多组数据组成的array 每个元素包含时间 开盘价等数据
+        NSLog(@"%@",responseObject[@"data"]);
+        self.groupModel = groupModel;
+        [self.modelsDict setObject:groupModel forKey:self.type];
+        // NSLog(@"%@",groupModel);
+        [self.stockChartView reloadData];
+    } fail:^{
+        
+    }];
 }
-#pragma --mark Setter of Y_StockChartView
+
 - (Y_StockChartView *)stockChartView
 {
-    NSLog(@"stockChartView");
+    NSLog(@"stockchartView");
     if(!_stockChartView) {
         _stockChartView = [Y_StockChartView new];
+        
         _stockChartView.itemModels = @[
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"指标" type:Y_StockChartcenterViewTypeOther],
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"分时" type:Y_StockChartcenterViewTypeTimeLine],
@@ -225,14 +177,14 @@
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"周线" type:Y_StockChartcenterViewTypeKline],
                                        ];
         
-       // _stockChartView.backgroundColor = [UIColor orangeColor];
+        // _stockChartView.backgroundColor = [UIColor orangeColor];
         _stockChartView.dataSource = self;
         [self.view addSubview:_stockChartView];
         [_stockChartView mas_makeConstraints:^(MASConstraintMaker *make) {
             if (IS_IPHONE_X) {
                 make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 30, 0, 0));
             } else {
-                make.top.equalTo(self.view).offset(60);
+                make.top.equalTo(self.view);
                 make.bottom.left.right.equalTo(self.view);
                 //make.edges.equalTo(self.view);
             }
@@ -245,26 +197,21 @@
 }
 - (void)dismiss
 {
-    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
-    appdelegate.isEable = YES;
     
-    Y_StockChartLandScapeViewController *stockChartVC = [Y_StockChartLandScapeViewController new];
-    //stockChartVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    //    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:stockChartVC];
-    //    [self.navigationController pushViewController:stockChartVC animated:YES];
-    [self presentViewController:stockChartVC animated:NO completion:nil];
-
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    appdelegate.isEable = NO;
+    [self dismissViewControllerAnimated:self completion:nil ];
+   
 }
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskLandscape;
 }
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-    //return UIStatusBarStyleDefault;
-}
 - (BOOL)shouldAutorotate
 {
     return NO;
 }
+
+
+
 @end

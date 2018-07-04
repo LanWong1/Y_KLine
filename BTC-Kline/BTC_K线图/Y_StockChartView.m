@@ -39,13 +39,15 @@
 
 - (Y_KLineView *)kLineView
 {
+    NSLog(@"klineView");
     if(!_kLineView)
     {
         _kLineView = [Y_KLineView new];
         [self addSubview:_kLineView];
         [_kLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.right.top.equalTo(self);
-            make.left.equalTo(self.segmentView.mas_right);
+            make.bottom.right.equalTo(self);
+            make.left.equalTo(self).offset(5);
+            make.top.equalTo(self.segmentView.mas_bottom);
         }];
     }
     return _kLineView;
@@ -59,8 +61,11 @@
         _segmentView.delegate = self;
         [self addSubview:_segmentView];
         [_segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.left.top.equalTo(self);
-            make.width.equalTo(@50);
+           // make.bottom.left.top.equalTo(self);
+            make.right.left.equalTo(self);
+            make.top.equalTo(self);
+            make.height.equalTo(@40);
+           //make.width.equalTo(@50);
         }];
     }
     return _segmentView;
@@ -82,7 +87,7 @@
     }
     if(self.dataSource)
     {
-        self.segmentView.selectedIndex = 4;
+        self.segmentView.selectedIndex = 6;
     }
 }
 
@@ -91,7 +96,7 @@
     _dataSource = dataSource;
     if(self.itemModels)
     {
-        self.segmentView.selectedIndex = 4;
+        self.segmentView.selectedIndex = 6;
     }
 }
 - (void)reloadData
@@ -128,20 +133,15 @@
     } else {
         if(self.dataSource && [self.dataSource respondsToSelector:@selector(stockDatasWithIndex:)])
         {
+            //获得数据
             id stockData = [self.dataSource stockDatasWithIndex:index];
-            
             if(!stockData)
             {
                 return;
             }
             
             Y_StockChartViewItemModel *itemModel = self.itemModels[index];
-            
-            
             Y_StockChartCenterViewType type = itemModel.centerViewType;
-            
-
-            
             if(type != self.currentCenterViewType)
             {
                 //移除当前View，设置新的View
@@ -150,12 +150,11 @@
                     case Y_StockChartcenterViewTypeKline:
                     {
                         self.kLineView.hidden = NO;
-                        //                    [self bringSubviewToFront:self.kLineView];
-                        [self bringSubviewToFront:self.segmentView];
+                      //[self bringSubviewToFront:self.kLineView];
+                     //[self bringSubviewToFront:self.segmentView];
                         
                     }
                         break;
-                        
                     default:
                         break;
                 }
@@ -169,7 +168,7 @@
                 self.kLineView.MainViewType = type;
                 [self.kLineView reDraw];
             }
-            [self bringSubviewToFront:self.segmentView];
+            //[self bringSubviewToFront:self.segmentView];
         }
     }
 

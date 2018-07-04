@@ -12,6 +12,7 @@
 #import "Y_StockChartViewController.h"
 #import "Masonry.h"
 #import "AppDelegate.h"
+#import "CodeListVC.h"
 @interface ViewController ()
 
 @end
@@ -40,10 +41,19 @@
 }
 - (IBAction)present:(id)sender {
     AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
-    appdelegate.isEable = YES;
-    Y_StockChartViewController *stockChartVC = [Y_StockChartViewController new];
-    stockChartVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:stockChartVC animated:YES completion:nil];
+    appdelegate.isEable = NO;
+    
+//    Y_StockChartViewController *stockChartVC = [Y_StockChartViewController new];
+//    stockChartVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:stockChartVC];
+//    [self.navigationController pushViewController:stockChartVC animated:YES];
+    
+    
+    CodeListVC *codeListVC = [CodeListVC new];
+    codeListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:codeListVC];
+    [self.navigationController pushViewController:codeListVC animated:YES];
+    //[self presentViewController:stockChartVC animated:YES completion:nil];
 }
 - (BOOL)shouldAutorotate
 {

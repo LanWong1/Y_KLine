@@ -26,7 +26,6 @@
         [model initWithArray:item];
         model.ParentGroupModel = groupModel;
         [mutableArr addObject:model];
-
         preModel = model;
     }
     

@@ -37,7 +37,6 @@
 		84C0D78B1CD117B40013B3D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D78A1CD117B40013B3D4 /* main.m */; };
 		84C0D78E1CD117B40013B3D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D78D1CD117B40013B3D4 /* AppDelegate.m */; };
 		84C0D7911CD117B40013B3D4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D7901CD117B40013B3D4 /* ViewController.m */; };
-		84C0D7941CD117B40013B3D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0D7921CD117B40013B3D4 /* Main.storyboard */; };
 		84C0D7961CD117B40013B3D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C0D7951CD117B40013B3D4 /* Assets.xcassets */; };
 		84C0D7991CD117B40013B3D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0D7971CD117B40013B3D4 /* LaunchScreen.storyboard */; };
 		84C0D7A21CD118080013B3D4 /* Y_StockChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D7A11CD118080013B3D4 /* Y_StockChartViewController.m */; };
@@ -61,7 +60,41 @@
 		84FFC12B1CD35DF400C749F6 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC11A1CD35DF400C749F6 /* UIWebView+AFNetworking.m */; };
 		84FFC12E1CD4676F00C749F6 /* Y_StockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC12D1CD4676F00C749F6 /* Y_StockChartView.m */; };
 		84FFC1541CD4A21600C749F6 /* UIColor+Y_StockChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC1531CD4A21600C749F6 /* UIColor+Y_StockChart.m */; };
+		BA3D615C20EB699300665888 /* Y_StockChartLandScapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D615B20EB699300665888 /* Y_StockChartLandScapeViewController.m */; };
+		BA3D616120EC6BA000665888 /* WpQuote.ice in Resources */ = {isa = PBXBuildFile; fileRef = BA3D615E20EC6B9F00665888 /* WpQuote.ice */; };
+		BA3D616220EC6BA000665888 /* WpTrade.ice in Resources */ = {isa = PBXBuildFile; fileRef = BA3D615F20EC6B9F00665888 /* WpTrade.ice */; };
+		BA3D616320EC6BA000665888 /* NpTrade.ice in Resources */ = {isa = PBXBuildFile; fileRef = BA3D616020EC6B9F00665888 /* NpTrade.ice */; };
+		BA3D616620EC6BE200665888 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D616520EC6BE200665888 /* Foundation.framework */; };
+		BA3D616820EC6BEC00665888 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D616720EC6BEC00665888 /* UIKit.framework */; };
+		BA3D616920EC6C1900665888 /* NpTrade.ice in Sources */ = {isa = PBXBuildFile; fileRef = BA3D616020EC6B9F00665888 /* NpTrade.ice */; };
+		BA3D616A20EC6C1900665888 /* WpQuote.ice in Sources */ = {isa = PBXBuildFile; fileRef = BA3D615E20EC6B9F00665888 /* WpQuote.ice */; };
+		BA3D616B20EC6C1900665888 /* WpTrade.ice in Sources */ = {isa = PBXBuildFile; fileRef = BA3D615F20EC6B9F00665888 /* WpTrade.ice */; };
+		BA3D616F20EC6E1900665888 /* config2.client in Resources */ = {isa = PBXBuildFile; fileRef = BA3D616C20EC6E1800665888 /* config2.client */; };
+		BA3D617020EC6E1900665888 /* config1.client in Resources */ = {isa = PBXBuildFile; fileRef = BA3D616D20EC6E1800665888 /* config1.client */; };
+		BA3D617120EC6E1900665888 /* config.client in Resources */ = {isa = PBXBuildFile; fileRef = BA3D616E20EC6E1900665888 /* config.client */; };
+		BA3D617920EC711200665888 /* ICEQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D617320EC711200665888 /* ICEQuote.m */; };
+		BA3D617A20EC711200665888 /* ICENpTrade.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D617520EC711200665888 /* ICENpTrade.m */; };
+		BA3D617B20EC711200665888 /* ICETool.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D617820EC711200665888 /* ICETool.m */; };
+		BA3D617E20EC722900665888 /* CodeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D617C20EC722900665888 /* CodeListVC.m */; };
+		BA3D618120EC745B00665888 /* searchSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3D617F20EC745A00665888 /* searchSelected.png */; };
+		BA3D618220EC745B00665888 /* searchNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3D618020EC745A00665888 /* searchNormal.png */; };
+		BA3D618720EC777A00665888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3D618620EC777A00665888 /* Main.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		BA3D615D20EC69D500665888 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ice";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).h",
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).m",
+			);
+			script = /usr/local/bin/icebuilder;
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		8415E1DE1CDC6D0E00F58CD3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,7 +162,6 @@
 		84C0D78D1CD117B40013B3D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84C0D78F1CD117B40013B3D4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		84C0D7901CD117B40013B3D4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		84C0D7931CD117B40013B3D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84C0D7951CD117B40013B3D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C0D7981CD117B40013B3D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C0D79A1CD117B40013B3D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +210,27 @@
 		84FFC12D1CD4676F00C749F6 /* Y_StockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_StockChartView.m; sourceTree = "<group>"; };
 		84FFC1521CD4A21600C749F6 /* UIColor+Y_StockChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Y_StockChart.h"; sourceTree = "<group>"; };
 		84FFC1531CD4A21600C749F6 /* UIColor+Y_StockChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Y_StockChart.m"; sourceTree = "<group>"; };
+		BA3D615A20EB699300665888 /* Y_StockChartLandScapeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Y_StockChartLandScapeViewController.h; sourceTree = "<group>"; };
+		BA3D615B20EB699300665888 /* Y_StockChartLandScapeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Y_StockChartLandScapeViewController.m; sourceTree = "<group>"; };
+		BA3D615E20EC6B9F00665888 /* WpQuote.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WpQuote.ice; sourceTree = "<group>"; };
+		BA3D615F20EC6B9F00665888 /* WpTrade.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WpTrade.ice; sourceTree = "<group>"; };
+		BA3D616020EC6B9F00665888 /* NpTrade.ice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NpTrade.ice; sourceTree = "<group>"; };
+		BA3D616520EC6BE200665888 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA3D616720EC6BEC00665888 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BA3D616C20EC6E1800665888 /* config2.client */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config2.client; sourceTree = "<group>"; };
+		BA3D616D20EC6E1800665888 /* config1.client */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config1.client; sourceTree = "<group>"; };
+		BA3D616E20EC6E1900665888 /* config.client */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.client; sourceTree = "<group>"; };
+		BA3D617320EC711200665888 /* ICEQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICEQuote.m; sourceTree = "<group>"; };
+		BA3D617420EC711200665888 /* ICETool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETool.h; sourceTree = "<group>"; };
+		BA3D617520EC711200665888 /* ICENpTrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICENpTrade.m; sourceTree = "<group>"; };
+		BA3D617620EC711200665888 /* ICENpTrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICENpTrade.h; sourceTree = "<group>"; };
+		BA3D617720EC711200665888 /* ICEQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICEQuote.h; sourceTree = "<group>"; };
+		BA3D617820EC711200665888 /* ICETool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICETool.m; sourceTree = "<group>"; };
+		BA3D617C20EC722900665888 /* CodeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeListVC.m; sourceTree = "<group>"; };
+		BA3D617D20EC722900665888 /* CodeListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeListVC.h; sourceTree = "<group>"; };
+		BA3D617F20EC745A00665888 /* searchSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchSelected.png; sourceTree = "<group>"; };
+		BA3D618020EC745A00665888 /* searchNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchNormal.png; sourceTree = "<group>"; };
+		BA3D618620EC777A00665888 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +238,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3D616820EC6BEC00665888 /* UIKit.framework in Frameworks */,
+				BA3D616620EC6BE200665888 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +441,7 @@
 			children = (
 				84C0D7881CD117B40013B3D4 /* BTC-Kline */,
 				84C0D7871CD117B40013B3D4 /* Products */,
+				BA3D616420EC6BE200665888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +456,7 @@
 		84C0D7881CD117B40013B3D4 /* BTC-Kline */ = {
 			isa = PBXGroup;
 			children = (
+				BA3D617220EC70DA00665888 /* New Group */,
 				84FFC0F51CD35DF400C749F6 /* AFNetworking */,
 				8415E1DD1CDC6D0E00F58CD3 /* Masonry */,
 				84FFC12F1CD4678A00C749F6 /* BTC_K线图 */,
@@ -409,6 +466,10 @@
 				84C0D7901CD117B40013B3D4 /* ViewController.m */,
 				84C0D7A01CD118080013B3D4 /* Y_StockChartViewController.h */,
 				84C0D7A11CD118080013B3D4 /* Y_StockChartViewController.m */,
+				BA3D615A20EB699300665888 /* Y_StockChartLandScapeViewController.h */,
+				BA3D615B20EB699300665888 /* Y_StockChartLandScapeViewController.m */,
+				BA3D617D20EC722900665888 /* CodeListVC.h */,
+				BA3D617C20EC722900665888 /* CodeListVC.m */,
 			);
 			path = "BTC-Kline";
 			sourceTree = "<group>";
@@ -421,8 +482,16 @@
 				84C0D7951CD117B40013B3D4 /* Assets.xcassets */,
 				84C0D79A1CD117B40013B3D4 /* Info.plist */,
 				84C0D7971CD117B40013B3D4 /* LaunchScreen.storyboard */,
-				84C0D7921CD117B40013B3D4 /* Main.storyboard */,
+				BA3D618620EC777A00665888 /* Main.storyboard */,
 				84C0D78A1CD117B40013B3D4 /* main.m */,
+				BA3D618020EC745A00665888 /* searchNormal.png */,
+				BA3D617F20EC745A00665888 /* searchSelected.png */,
+				BA3D615E20EC6B9F00665888 /* WpQuote.ice */,
+				BA3D615F20EC6B9F00665888 /* WpTrade.ice */,
+				BA3D616020EC6B9F00665888 /* NpTrade.ice */,
+				BA3D616E20EC6E1900665888 /* config.client */,
+				BA3D616D20EC6E1800665888 /* config1.client */,
+				BA3D616C20EC6E1800665888 /* config2.client */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -447,6 +516,12 @@
 			children = (
 				84FFC0F21CD35DD400C749F6 /* NetWorking.h */,
 				84FFC0F31CD35DD400C749F6 /* NetWorking.m */,
+				BA3D617620EC711200665888 /* ICENpTrade.h */,
+				BA3D617520EC711200665888 /* ICENpTrade.m */,
+				BA3D617720EC711200665888 /* ICEQuote.h */,
+				BA3D617320EC711200665888 /* ICEQuote.m */,
+				BA3D617420EC711200665888 /* ICETool.h */,
+				BA3D617820EC711200665888 /* ICETool.m */,
 			);
 			path = NetWorking;
 			sourceTree = "<group>";
@@ -527,6 +602,22 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		BA3D616420EC6BE200665888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA3D616720EC6BEC00665888 /* UIKit.framework */,
+				BA3D616520EC6BE200665888 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA3D617220EC70DA00665888 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -539,6 +630,7 @@
 				84C0D7841CD117B40013B3D4 /* Resources */,
 			);
 			buildRules = (
+				BA3D615D20EC69D500665888 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -558,7 +650,7 @@
 				TargetAttributes = {
 					84C0D7851CD117B40013B3D4 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WXK7UF23NY;
+						DevelopmentTeam = W9753JG9F5;
 					};
 				};
 			};
@@ -585,10 +677,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3D617120EC6E1900665888 /* config.client in Resources */,
+				BA3D618120EC745B00665888 /* searchSelected.png in Resources */,
+				BA3D618220EC745B00665888 /* searchNormal.png in Resources */,
+				BA3D618720EC777A00665888 /* Main.storyboard in Resources */,
+				BA3D616120EC6BA000665888 /* WpQuote.ice in Resources */,
 				84C0D7991CD117B40013B3D4 /* LaunchScreen.storyboard in Resources */,
+				BA3D616320EC6BA000665888 /* NpTrade.ice in Resources */,
+				BA3D616F20EC6E1900665888 /* config2.client in Resources */,
 				8415E1F81CDC6D0E00F58CD3 /* Info.plist in Resources */,
 				84C0D7961CD117B40013B3D4 /* Assets.xcassets in Resources */,
-				84C0D7941CD117B40013B3D4 /* Main.storyboard in Resources */,
+				BA3D617020EC6E1900665888 /* config1.client in Resources */,
+				BA3D616220EC6BA000665888 /* WpTrade.ice in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +699,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3D616920EC6C1900665888 /* NpTrade.ice in Sources */,
+				BA3D616A20EC6C1900665888 /* WpQuote.ice in Sources */,
+				BA3D616B20EC6C1900665888 /* WpTrade.ice in Sources */,
 				84FFC12E1CD4676F00C749F6 /* Y_StockChartView.m in Sources */,
 				84D8EAB41CD1C284008D7BC7 /* Y_KLineGroupModel.m in Sources */,
 				84C0D7A21CD118080013B3D4 /* Y_StockChartViewController.m in Sources */,
@@ -610,11 +713,14 @@
 				8415E2011CDC6D0E00F58CD3 /* View+MASAdditions.m in Sources */,
 				84FFC11F1CD35DF400C749F6 /* AFURLResponseSerialization.m in Sources */,
 				84FFC1261CD35DF400C749F6 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				BA3D617A20EC711200665888 /* ICENpTrade.m in Sources */,
 				84FFC12B1CD35DF400C749F6 /* UIWebView+AFNetworking.m in Sources */,
 				8415E1FE1CDC6D0E00F58CD3 /* MASViewConstraint.m in Sources */,
 				8415E1FF1CDC6D0E00F58CD3 /* NSArray+MASAdditions.m in Sources */,
 				84C0D7911CD117B40013B3D4 /* ViewController.m in Sources */,
+				BA3D617B20EC711200665888 /* ICETool.m in Sources */,
 				84FFC11E1CD35DF400C749F6 /* AFURLRequestSerialization.m in Sources */,
+				BA3D617920EC711200665888 /* ICEQuote.m in Sources */,
 				8415E1FC1CDC6D0E00F58CD3 /* MASLayoutConstraint.m in Sources */,
 				84681CB11CD9A8EE008A8157 /* Y_KLineAccessory.m in Sources */,
 				84681C9A1CD895CB008A8157 /* Y_KLineVolumeView.m in Sources */,
@@ -627,6 +733,7 @@
 				8415E2021CDC6D0E00F58CD3 /* ViewController+MASAdditions.m in Sources */,
 				84C0D78E1CD117B40013B3D4 /* AppDelegate.m in Sources */,
 				84FFC1241CD35DF400C749F6 /* AFImageDownloader.m in Sources */,
+				BA3D615C20EB699300665888 /* Y_StockChartLandScapeViewController.m in Sources */,
 				84681C901CD7325F008A8157 /* Y_MALine.m in Sources */,
 				84681C9D1CD89954008A8157 /* Y_KLineVolume.m in Sources */,
 				84681C8D1CD7290D008A8157 /* Y_KLine.m in Sources */,
@@ -649,21 +756,13 @@
 				84FFC12A1CD35DF400C749F6 /* UIRefreshControl+AFNetworking.m in Sources */,
 				84FFC11C1CD35DF400C749F6 /* AFNetworkReachabilityManager.m in Sources */,
 				84C0D78B1CD117B40013B3D4 /* main.m in Sources */,
+				BA3D617E20EC722900665888 /* CodeListVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84C0D7921CD117B40013B3D4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84C0D7931CD117B40013B3D4 /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		84C0D7971CD117B40013B3D4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -763,14 +862,26 @@
 		84C0D79E1CD117B40013B3D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "/usr/local/opt/ice/sdk/$(PLATFORM_NAME).sdk";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXK7UF23NY;
+				DEVELOPMENT_TEAM = W9753JG9F5;
 				INFOPLIST_FILE = "BTC-Kline/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yeeyuntech.BTC-Kline";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lGlacier2Objc",
+					"-lIceObjc",
+					"-lIceSSL",
+					"-lbz2",
+					"-lIce",
+					"-ObjC",
+					"-liconv",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lanwong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -779,14 +890,26 @@
 		84C0D79F1CD117B40013B3D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "/usr/local/opt/ice/sdk/$(PLATFORM_NAME).sdk";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WXK7UF23NY;
+				DEVELOPMENT_TEAM = W9753JG9F5;
 				INFOPLIST_FILE = "BTC-Kline/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yeeyuntech.BTC-Kline";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lGlacier2Objc",
+					"-lIceObjc",
+					"-lIceSSL",
+					"-lbz2",
+					"-lIce",
+					"-ObjC",
+					"-liconv",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lanwong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

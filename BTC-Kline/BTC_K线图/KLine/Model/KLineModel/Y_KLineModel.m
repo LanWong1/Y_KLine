@@ -462,7 +462,7 @@
                     }
                     em--;
                 }
-                NSLog(@"%f",emMaxValue.floatValue);
+                //NSLog(@"%f",emMaxValue.floatValue);
                 models[j].NineClocksMaxPrice = emMaxValue;
             }
             //第一个循环结束后，ClockFirstValue为最小值
@@ -480,7 +480,7 @@
                     }
                     em--;
                 }
-                NSLog(@"%f",emMaxValue.floatValue);
+               // NSLog(@"%f",emMaxValue.floatValue);
 
                 models[j].NineClocksMaxPrice = emMaxValue;
             }
@@ -541,8 +541,9 @@
         _High = @([arr[2] floatValue]);
         _Low = @([arr[3] floatValue]);  
         _Close = @([arr[4] floatValue]);
-
         _Volume = [arr[5] floatValue];
+        
+        
         self.SumOfLastClose = @(_Close.floatValue + self.PreviousKlineModel.SumOfLastClose.floatValue);
         self.SumOfLastVolume = @(_Volume + self.PreviousKlineModel.SumOfLastVolume.floatValue);
 //        NSLog(@"%@======%@======%@------%@",_Close,self.MA7,self.MA30,_SumOfLastClose);

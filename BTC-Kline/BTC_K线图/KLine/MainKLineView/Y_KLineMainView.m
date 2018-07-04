@@ -286,6 +286,7 @@
 #pragma mark 私有方法
 //提取需要绘制的数组
 - (NSArray *)private_extractNeedDrawModels{
+    
     CGFloat lineGap = [Y_StockChartGlobalVariable kLineGap];
     CGFloat lineWidth = [Y_StockChartGlobalVariable kLineWidth];
     
